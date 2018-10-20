@@ -5,7 +5,7 @@ $(document).ready(function() {
             name: "porg",
             called: "Porg",
             healthPoints: 100,
-            attackPower: 5,
+            attackPower: 24,
             counterAttackPower: 10
         },
 
@@ -13,15 +13,15 @@ $(document).ready(function() {
             name: "r2-d2",
             called: "R2-D2",
             healthPoints: 200,
-            attackPower: 10,
-            counterAttackPower: 15
+            attackPower: 8,
+            counterAttackPower: 10
         },
 
         {
             name: "luke-skywalker",
             called: "Luke Skywalker",
             healthPoints: 400,
-            attackPower: 20,
+            attackPower: 1,
             counterAttackPower: 20
         },
 
@@ -29,8 +29,8 @@ $(document).ready(function() {
             name: "chewbacca",
             called: "Chewbacca",
             healthPoints: 300,
-            attackPower: 15,
-            counterAttackPower: 30
+            attackPower: 4,
+            counterAttackPower: 15
         }
     ];
 
@@ -132,10 +132,13 @@ $(document).ready(function() {
             // If the enemy runs out of health points, then the card is removed and the player is free to choose a new enemy.
             if(enemy.healthPoints <= 0) {
                 $("#dialog").html("You have defeated " + enemy.name + ", you can choose to fight another enemy.");
+                
                 $("#defender-area").html("");
 
+                enemy.name = "";
+
                 if($("#enemies .character").length < 1) {
-                    $("#dialog").html("You Won!!!! GAME OVER!!! (Go home you're drunk " + player.name + ".)");
+                    $("#dialog").html("You Won!!!!<br>(Go home you're drunk, " + player.name + ".)");
                 }
             }
 
