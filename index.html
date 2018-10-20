@@ -20,28 +20,28 @@
         <main id="game">
             <div class="container">
                 <div class="row text-center" id="cast">
-                    <div class="col-3 character" id="porg">
+                    <div class="col-12 col-md-3 character" id="porg">
                         <p>Porg</p>
 
                         <img class="img-thumbnail" src="assets/images/Porg_nest.png" alt="Porg">
 
-                        <p>100</p>
+                        <p class="hp">100</p>
                     </div>
 
-                    <div class="col-3 character" id="r2-d2">
+                    <div class="col-12 col-md-3 character" id="r2-d2">
                         <p>R2-D2</p>
 
                         <img class="img-thumbnail" src="assets/images/Skyrocketsinflight.jpg" alt="R2-D2">
 
-                        <p>200</p>
+                        <p class="hp">200</p>
                     </div>
 
-                    <div class="col-3 character" id="luke-skywalker">
+                    <div class="col-12 col-md-3 character" id="luke-skywalker">
                         <p>Luke Skywalker</p>
                         
                         <img class="img-thumbnail" src="assets/images/Luke_Skywalker_on_Crait.png" alt="Luke Skywalker">
 
-                        <p>400</p>
+                        <p class="hp">400</p>
                     </div>
 
                     <div class="col-3 character" id="chewbacca">
@@ -49,7 +49,7 @@
 
                         <img class="img-thumbnail" src="assets/images/solo-chewbacca.jpeg" alt="Chewbacca">
 
-                        <p>300</p>
+                        <p class="hp">300</p>
                     </div>
                 </div>
 
@@ -57,8 +57,10 @@
                     <div class="col-12">
                         <h2>Your character:</h2>
                         
-                        <div class="row" id="player">
+                        <div class="row text-center">
+                            <div class="col-12 col-md-3 character" id="player"></div>
 
+                            <div class="col"></div>
                         </div>
                     </div>
                 </div>
@@ -67,25 +69,27 @@
                     <div class="col-12">
                         <h2>Enemies to Available to Attack</h2>
 
-                        <div class="row" id="enemies">
-                            <div class="col"></div>
-                        </div>
+                        <div class="row text-center" id="enemies"></div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
                         <h2>Fight Section</h2>
+
+                        <button class="btn btn-lg" id="attack">Attack</button>
                     
                         <h3>Defender</h3>
 
-                        <div class="row">
-                            <div class="col-3 character" id="defender-area">
-                                
-                            </div>
+                        <div class="row text-center">
+                            <div class="col-12 col-md-3 character" id="defender-area"></div>
+
+                            <div class="col"></div>
                         </div>
 
                         <p id="dialog"></p>
+
+                        <button class="btn btn-lg" id="restart">Restart</button>
                     </div>
                 </div>
             </div>
