@@ -46,7 +46,7 @@ $(document).ready(function() {
             name: "darth-porgius",
             called: "Darth Porgius",
             healthPoints: 1000,
-            counterAttackPower: 50
+            counterAttackPower: 2
     };
 
     var bonusWin = false;
@@ -160,7 +160,7 @@ $(document).ready(function() {
                 enemy.name = "";
 
                 // The player wins if there are no more opponents left to fight.
-                if($("#enemies .character").length < 1) {
+                if(($("#enemies .character").length < 1)) {
                     bonusTrigger = true;
 
                     // A win is added for the player character.
@@ -176,7 +176,7 @@ $(document).ready(function() {
                     });
                     
                     // The bonus boss is automatically set up.
-                    if(bonusTrigger) {
+                    if(bonusTrigger && !bonusWin) {
                         enemy.name = bonusBoss.called;
                         enemy.healthPoints = bonusBoss.healthPoints;
                         enemy.counterAttackPower = bonusBoss.counterAttackPower;
@@ -193,8 +193,6 @@ $(document).ready(function() {
                         if(bonusWin) {
                             $("#dialog").html("You have won the bonus battle against " + enemy.name + " on Crait!");
                         }
-
-                        $("#restart").show();
                     }
                 }
             }
@@ -220,8 +218,9 @@ $(document).ready(function() {
             bonusTrigger = false;
 
             // If the player finishes the game (win or lose), then the restart button appears.
-            if((player.healthPoints <= 0) || ($("#enemies .character").length < 1)) {
+            if((player.healthPoints <= 0) || (($("#enemies .character").length < 1) && enemy.healthPoints <= 0)) {
                 bonusWin = false;
+                $("#restart").show();
             }
         }
     });
