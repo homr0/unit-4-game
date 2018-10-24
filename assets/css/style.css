@@ -5,6 +5,7 @@ body {
     background-image: url('../images/Ahch-To.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     color: rgb(255, 255, 255);
 }
 

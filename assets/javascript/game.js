@@ -49,6 +49,8 @@ $(document).ready(function() {
             counterAttackPower: 50
     };
 
+    var bonusWin = false;
+
     // Player and enemy placeholders
     var player = {
         name: "",
@@ -178,6 +180,8 @@ $(document).ready(function() {
                         enemy.name = bonusBoss.called;
                         enemy.healthPoints = bonusBoss.healthPoints;
                         enemy.counterAttackPower = bonusBoss.counterAttackPower;
+
+                        bonusWin = true;
                         
                         $("#defender-area").html($("#" + bonusBoss.name).html());
 
@@ -186,7 +190,11 @@ $(document).ready(function() {
                     } else {
                         $("#dialog").html("You Won!!!!<br>(" + player.victory + ".)");
 
-                        $("body").removeAttr("style");
+                        if(bonusWin) {
+                            $("#dialog").html("You have won the bonus battle against " + enemy.name + " on Crait!");
+                        }
+
+                        $("#restart").show();
                     }
                 }
             }
@@ -213,7 +221,7 @@ $(document).ready(function() {
 
             // If the player finishes the game (win or lose), then the restart button appears.
             if((player.healthPoints <= 0) || ($("#enemies .character").length < 1)) {
-                $("#restart").show();
+                bonusWin = false;
             }
         }
     });
@@ -238,5 +246,9 @@ $(document).ready(function() {
         enemy.name = "";
         enemy.healthPoints = 0;
         enemy.counterAttackPower = 0;
+
+        // Resets the CSS
+        $("body").removeAttr("style");
+        $("#restart").hide();
     });
 });
