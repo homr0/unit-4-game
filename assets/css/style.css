@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Righteous');
+
+body {
+    font-family: 'Oswald', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('../images/Ahch-To.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: rgb(255, 255, 255);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Righteous', cursive;
+    color: rgba(255, 255, 0, 0.9);
+}
+
+#bonus-boss {
+    display: none;
+}
