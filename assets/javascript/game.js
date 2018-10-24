@@ -39,15 +39,15 @@ $(document).ready(function() {
             counterAttackPower: 15,
             victory: "Thanks to you the Resistance might just survive the battle on Crait.",
             wins: 0
-        },
+        }
+    ];
 
-        {
+    var bonusBoss = {
             name: "darth-porgius",
             called: "Darth Porgius",
             healthPoints: 1000,
             counterAttackPower: 50
-        }
-    ];
+    };
 
     // Player and enemy placeholders
     var player = {
@@ -138,6 +138,9 @@ $(document).ready(function() {
     $("#attack").on("click", function() {
         // If there is an enemy in the defender area, then the enemy is attacked
         if((enemy.name !== "") && (player.healthPoints > 0)) {
+            // Bonus battle trigger
+            let bonusTrigger = false;
+
             // Player attacks enemy
             var damage = player.attackPower * (player.attacks + 1);
             enemy.healthPoints -= damage;
@@ -156,18 +159,39 @@ $(document).ready(function() {
 
                 // The player wins if there are no more opponents left to fight.
                 if($("#enemies .character").length < 1) {
-                    $("#dialog").html("You Won!!!!<br>(" + player.victory + ".)");
+                    bonusTrigger = true;
 
                     // A win is added for the player character.
                     $(playable).each(function(key, value) {
                         if(value.called == player.name) {
                             value.wins++;
                         }
+
+                        // Checks if bonus boss battle condition has been met.
+                        if(value.wins < 1) {
+                            bonusTrigger = false;
+                        }
                     });
+                    
+                    // The bonus boss is automatically set up.
+                    if(bonusTrigger) {
+                        enemy.name = bonusBoss.called;
+                        enemy.healthPoints = bonusBoss.healthPoints;
+                        enemy.counterAttackPower = bonusBoss.counterAttackPower;
+                        
+                        $("#defender-area").html($("#" + bonusBoss.name).html());
+
+                        $("body").css("background-image", "url('assets/images/crait.jpg')");
+                        $("#dialog").html(enemy.name + " has arrived on Crait.");
+                    } else {
+                        $("#dialog").html("You Won!!!!<br>(" + player.victory + ".)");
+
+                        $("body").removeAttr("style");
+                    }
                 }
             }
 
-            if(enemy.healthPoints > 0) {
+            if((enemy.healthPoints > 0) && !bonusTrigger) {
                 // Enemy counterattacks player
                 player.healthPoints -= enemy.counterAttackPower;
                 $("#dialog").html($("#dialog").html() + enemy.name + " attacked you back for " + enemy.counterAttackPower + " damage.");
@@ -184,6 +208,8 @@ $(document).ready(function() {
                     });
                 }
             }
+
+            bonusTrigger = false;
 
             // If the player finishes the game (win or lose), then the restart button appears.
             if((player.healthPoints <= 0) || ($("#enemies .character").length < 1)) {

@@ -28,3 +28,6 @@ Luke Skywalker has overstayed his welcome in Ahch-To. Both his friends (and the 
 6. Once your enemy's health falls to 0, the enemy is defeated and you may choose another one to fight.
 7. You *lose* if your health drops to 0 (or below).
 8. You *win* if you beat all three of your enemies.\*
+9. Win or lose, you can *restart* the game and play again.
+
+**\* Bonus:** If you can beat the game with each character at least once with no losses, you can get a surprise at the end. :smile:
