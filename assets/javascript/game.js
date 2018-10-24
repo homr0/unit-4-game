@@ -6,7 +6,9 @@ $(document).ready(function() {
             called: "Porg",
             healthPoints: 100,
             attackPower: 24,
-            counterAttackPower: 10
+            counterAttackPower: 10,
+            victory: "The Jedi is off of Ahch-To and your nest on the Millenium Falcon is coming along nicely.",
+            wins: 0
         },
 
         {
@@ -14,7 +16,9 @@ $(document).ready(function() {
             called: "R2-D2",
             healthPoints: 200,
             attackPower: 8,
-            counterAttackPower: 10
+            counterAttackPower: 10,
+            victory: "Beep boop beep boop boop [Mission successful. Gloat to C3-PO about it.]",
+            wins: 0
         },
 
         {
@@ -22,7 +26,9 @@ $(document).ready(function() {
             called: "Luke Skywalker",
             healthPoints: 400,
             attackPower: 1,
-            counterAttackPower: 20
+            counterAttackPower: 20,
+            victory: "Congratulations on driving off your friends (and the Porg).",
+            wins: 0
         },
 
         {
@@ -30,7 +36,16 @@ $(document).ready(function() {
             called: "Chewbacca",
             healthPoints: 300,
             attackPower: 4,
-            counterAttackPower: 15
+            counterAttackPower: 15,
+            victory: "Thanks to you the Resistance might just survive the battle on Crait.",
+            wins: 0
+        },
+
+        {
+            name: "darth-porgius",
+            called: "Darth Porgius",
+            healthPoints: 1000,
+            counterAttackPower: 50
         }
     ];
 
@@ -39,7 +54,8 @@ $(document).ready(function() {
         name: "",
         healthPoints: 0,
         attackPower: 0,
-        attacks: 0
+        attacks: 0,
+        victory: ""
     };
 
     var enemy = {
@@ -65,6 +81,7 @@ $(document).ready(function() {
                     player.name = value.called;
                     player.healthPoints = value.healthPoints;
                     player.attackPower = value.attackPower;
+                    player.victory = value.victory;
                     return false;
                 }
             });
@@ -137,8 +154,16 @@ $(document).ready(function() {
 
                 enemy.name = "";
 
+                // The player wins if there are no more opponents left to fight.
                 if($("#enemies .character").length < 1) {
-                    $("#dialog").html("You Won!!!!<br>(Go home you're drunk, " + player.name + ".)");
+                    $("#dialog").html("You Won!!!!<br>(" + player.victory + ".)");
+
+                    // A win is added for the player character.
+                    $(playable).each(function(key, value) {
+                        if(value.called == player.name) {
+                            value.wins++;
+                        }
+                    });
                 }
             }
 
@@ -152,6 +177,11 @@ $(document).ready(function() {
                 if(player.healthPoints <= 0) {
                     $("#dialog").html("You have been defeated... GAME OVER");
                     $("#restart").show();
+
+                    // Resets the wins for all characters
+                    $(playable).each(function(key, value) {
+                        value.wins = 0;
+                    });
                 }
             }
 
@@ -176,6 +206,7 @@ $(document).ready(function() {
         player.attackPower = 0;
         player.healthPoints = 0;
         player.attacks = 0;
+        player.victory = "";
 
         // Resets the enemy stats
         enemy.name = "";
