@@ -35,7 +35,7 @@ $(document).ready(function() {
             name: "chewbacca",
             called: "Chewbacca",
             healthPoints: 300,
-            attackPower: 4,
+            attackPower: 3,
             counterAttackPower: 15,
             victory: "Thanks to you the Resistance might just survive the battle on Crait.",
             wins: 0
@@ -103,7 +103,10 @@ $(document).ready(function() {
             });
 
             // Hides the character selection
-            $("#cast .character").hide();
+            $("#cast .character, #pc-choice").hide();
+
+            // Shows the enemies and arena
+            $("#enemy-pen, #arena").show();
         }
     });
 
@@ -228,7 +231,7 @@ $(document).ready(function() {
     // Restarts the game by resetting the conditions
     $("#restart").on("click", function() {
         // Shows all of the playable characters
-        $("#cast .character").show();
+        $("#cast .character, #pc-choice").show();
 
         // Removes the player and enemy character cards
         $("#player, #defender-area, #dialog").html("");
@@ -246,8 +249,8 @@ $(document).ready(function() {
         enemy.healthPoints = 0;
         enemy.counterAttackPower = 0;
 
-        // Resets the CSS
+        // Resets the CSS and HTML
         $("body").removeAttr("style");
-        $("#restart").hide();
+        $("#restart, #enemy-pen, #arena").hide();
     });
 });

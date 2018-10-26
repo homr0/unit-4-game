@@ -13,12 +13,16 @@
     <body>
         <header>
             <div class="container">
-                <h1 class="text-center">Star Wars RPG</h1>
+                <h1 class="text-center">Star Wars RPG: The Last Jedi Edition</h1>
             </div>
         </header>
 
         <main id="game">
             <div class="container">
+                <div class="row text-center">
+                    <h2 id="pc-choice">Choose your character:</h2>
+                </div>
+
                 <div class="row text-center" id="cast">
                     <div class="col-12 col-md-3 character" id="porg">
                         <p>Porg</p>
@@ -53,19 +57,45 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Your character:</h2>
-                        
-                        <div class="row text-center">
-                            <div class="col-12 col-md-3 character" id="player"></div>
+                <div class="row" id="arena">
+                    <div class="col-12 text-center">
+                        <h2>Fight Section</h2>
 
-                            <div class="col"></div>
+                        <div class="row">
+                            <div class="col-12 col-md-3">
+                                <h3>Your character:</h3>
+                                
+                                <div class="row text-center">
+                                    <div class="col-12 character" id="player"></div>
+        
+                                    <div class="col"></div>
+                                </div>
+        
+                                <button class="btn btn-lg" id="attack">Attack</button>
+                            </div>
+        
+                            <div class="col-12 col-md-9">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3>Defender</h3>
+                
+                                        <div class="row text-center">
+                                            <div class="col-12 col-md-4 character" id="defender-area"></div>
+                
+                                            <div class="col"></div>
+                                        </div>
+                
+                                        <p id="dialog"></p>
+                
+                                        <button class="btn btn-lg" id="restart">Restart</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" id="enemy-pen">
                     <div class="col-12">
                         <h2>Enemies Available to Attack</h2>
 
@@ -80,26 +110,6 @@
                                 <p class="hp">1000</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Fight Section</h2>
-
-                        <button class="btn btn-lg" id="attack">Attack</button>
-                    
-                        <h3>Defender</h3>
-
-                        <div class="row text-center">
-                            <div class="col-12 col-md-3 character" id="defender-area"></div>
-
-                            <div class="col"></div>
-                        </div>
-
-                        <p id="dialog"></p>
-
-                        <button class="btn btn-lg" id="restart">Restart</button>
                     </div>
                 </div>
             </div>
