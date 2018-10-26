@@ -30,4 +30,4 @@ Luke Skywalker has overstayed his welcome in Ahch-To. Both his friends (and the 
 8. You *win* if you beat all three of your enemies.\*
 9. Win or lose, you can *restart* the game and play again.
 
-**\* Bonus:** If you can beat the game with each character at least once with no losses, you can get a surprise at the end. :smile:
+**\* Bonus:** If you can beat the game with each character at least once with no losses, you can get a surprise at the end. :wink:
