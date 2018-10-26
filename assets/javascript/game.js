@@ -36,7 +36,7 @@ $(document).ready(function() {
             called: "Chewbacca",
             healthPoints: 300,
             attackPower: 3,
-            counterAttackPower: 15,
+            counterAttackPower: 18,
             victory: "Thanks to you the Resistance might just survive the battle on Crait.",
             wins: 0
         }

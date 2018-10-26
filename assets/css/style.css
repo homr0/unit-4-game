@@ -29,9 +29,13 @@ header h1 {
 }
 
 .character {
-    min-height: 250px;
+    min-height: 200px;
     margin: 0.5rem;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.character p {
+    margin: 0;
 }
 
 #cast .character {
