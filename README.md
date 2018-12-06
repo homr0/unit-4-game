@@ -31,3 +31,9 @@ Luke Skywalker has overstayed his welcome in Ahch-To. Both his friends (and the 
 9. Win or lose, you can *restart* the game and play again.
 
 **\* Bonus:** If you can beat the game with each character at least once with no losses, you can get a surprise at the end. :wink:
+
+## Developer Diary
+
+For this project, I needed to implement a combat system for a simple RPG. This combat system was invovled simple removal of hit points from the player character and the enemy character via attacks and counterattacks respectively. To keep the game balanced, the player's attack damage would increase each turn while the enemy's counterattack damage would remain constant.
+
+Although the game is only on one web page, I used jQuery to show and hide different sections of the game depending on the phase that the game was in. Therefore the game could be roughly divided into the player character selection screen, enemy selection, and combat screen. Once each phase of the game was completed (as well as the game itself), the player would click on buttons which would trigger JavaScript events to move the game to its next phase.
